@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tipoff\RemoteMonitoring;
 
 use Spatie\LaravelPackageTools\Package;
@@ -8,6 +10,12 @@ use Tipoff\RemoteMonitoring\Commands\RemoteMonitoringCommand;
 
 class RemoteMonitoringServiceProvider extends PackageServiceProvider
 {
+    public function boot()
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        parent::boot();
+    }
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -17,9 +25,6 @@ class RemoteMonitoringServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('remote-monitoring')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_remote_monitoring_table')
-            ->hasCommand(RemoteMonitoringCommand::class);
+            ->hasConfigFile();
     }
 }
