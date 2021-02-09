@@ -6,7 +6,6 @@ namespace Tipoff\RemoteMonitoring;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Tipoff\RemoteMonitoring\Commands\RemoteMonitoringCommand;
 
 class RemoteMonitoringServiceProvider extends PackageServiceProvider
 {
