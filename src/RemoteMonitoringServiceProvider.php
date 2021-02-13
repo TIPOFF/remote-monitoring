@@ -4,25 +4,19 @@ declare(strict_types=1);
 
 namespace Tipoff\RemoteMonitoring;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Tipoff\RemoteMonitoring\Models\RemoteMonitoring;
+use Tipoff\RemoteMonitoring\Policies\RemoteMonitoringPolicy;
+use Tipoff\Support\TipoffPackage;
+use Tipoff\Support\TipoffServiceProvider;
 
-class RemoteMonitoringServiceProvider extends PackageServiceProvider
+class RemoteMonitoringServiceProvider extends TipoffServiceProvider
 {
-    public function boot()
+    public function configureTipoffPackage(TipoffPackage $package): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        parent::boot();
-    }
-
-    public function configurePackage(Package $package): void
-    {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
+            ->hasPolicies([
+                RemoteMonitoring::class => RemoteMonitoringPolicy::class,
+            ])
             ->name('remote-monitoring')
             ->hasConfigFile();
     }
