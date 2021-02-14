@@ -44,10 +44,7 @@
         "laravel": {
             "providers": [
                 "Tipoff\\RemoteMonitoring\\RemoteMonitoringServiceProvider"
-            ],
-            "aliases": {
-                "RemoteMonitoring": "Tipoff\\RemoteMonitoring\\RemoteMonitoringFacade"
-            }
+            ]
         }
     },
     "repositories": [
