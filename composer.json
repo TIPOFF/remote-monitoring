@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "tipoff/laravel-agora-api": "^1.0.0",
         "tipoff/support": "^1.7.2"
     },
     "require-dev": {
